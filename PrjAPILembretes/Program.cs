@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using PrjAPILembretes.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//Adicionando referencia a connection string
+builder.Services.AddDbContext<AppLembretesContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
