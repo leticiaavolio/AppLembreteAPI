@@ -25,13 +25,15 @@ namespace PrjAPILembretes.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CorpoLembrete")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<bool>("StatusLembrete")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("TituloLembrete")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("LembreteId");
 

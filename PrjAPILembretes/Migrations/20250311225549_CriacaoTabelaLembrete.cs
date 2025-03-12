@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace PrjAPILembretes.Migrations
 {
     /// <inheritdoc />
-    public partial class CriaçãoTabelaLembrete : Migration
+    public partial class CriacaoTabelaLembrete : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,9 +20,9 @@ namespace PrjAPILembretes.Migrations
                 {
                     LembreteId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    TituloLembrete = table.Column<string>(type: "varchar(255)", nullable: true),
-                    CorpoLembrete = table.Column<string>(type: "varchar(255)", nullable: true),
-                    Statud = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    TituloLembrete = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    CorpoLembrete = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    StatusLembrete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -10,8 +10,8 @@ using PrjAPILembretes.Context;
 namespace PrjAPILembretes.Migrations
 {
     [DbContext(typeof(AppLembretesContext))]
-    [Migration("20250311002734_Criação Tabela Lembrete")]
-    partial class CriaçãoTabelaLembrete
+    [Migration("20250311225549_CriacaoTabelaLembrete")]
+    partial class CriacaoTabelaLembrete
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,13 +28,15 @@ namespace PrjAPILembretes.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CorpoLembrete")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
-                    b.Property<bool>("Statud")
+                    b.Property<bool>("StatusLembrete")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("TituloLembrete")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("LembreteId");
 
