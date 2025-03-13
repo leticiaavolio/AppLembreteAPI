@@ -69,14 +69,12 @@ namespace PrjAPILembretes.Controllers
             _contextoDB.Lembretes.Remove(lembrete);//Remove o lembrete do banco de dados
 
             _contextoDB.SaveChanges();//salva as alterações no banco de dados
-            return Ok("Lembrete excluído!");//retorna o lembrete atualizado
+            return Ok(id);//retorna o lembrete atualizado
         }
         [HttpGet("getall")]
-        public IActionResult GetAll()//recebe o id do lembrete a ser deletado
+        public IActionResult GetAll()
         {
-            var listaLembrete = _contextoDB.Lembretes;
-
-            return Ok(listaLembrete);//retorna o lembrete atualizado
+            return Ok(_contextoDB.Lembretes);//retorna todos os lembretes do contextos
         }
 
     }
